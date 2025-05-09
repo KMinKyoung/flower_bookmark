@@ -14,5 +14,5 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //자동 증가 ID
-    private int id;
+    private Long id;
 }

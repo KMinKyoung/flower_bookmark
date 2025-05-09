@@ -3,17 +3,21 @@ package me.minkyoung.flower_bookmark.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "book")
-public class book {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id 자동 증가
-    private int id;
+    private Long id;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String title;
 
     @Column(nullable = false, length = 100)
@@ -28,6 +32,18 @@ public class book {
     @Column(nullable = false)
     private int stock_quantity;
 
+    @Lob
+    private String description;
 
-    // 이미지 url,생성일시, 업데이트 일시 칠드 추가해야함
+    @Column(name = "image_url", length = 500)
+    private String image_url;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
 }
