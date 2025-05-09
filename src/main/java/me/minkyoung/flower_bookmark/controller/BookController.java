@@ -1,10 +1,10 @@
-package me.minkyoung.flower_bookmark.Controller;
+package me.minkyoung.flower_bookmark.controller;
 
 import jakarta.validation.Valid;
-import me.minkyoung.flower_bookmark.Dto.BookRequest;
-import me.minkyoung.flower_bookmark.Dto.BookResponse;
-import me.minkyoung.flower_bookmark.Entity.Book;
-import me.minkyoung.flower_bookmark.Service.BookService;
+import me.minkyoung.flower_bookmark.dto.BookRequest;
+import me.minkyoung.flower_bookmark.dto.BookResponse;
+import me.minkyoung.flower_bookmark.entity.Book;
+import me.minkyoung.flower_bookmark.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/book")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BookController {
     //service를 주입받아 요청 처리에 사용할 객체 생성
     private final BookService bookService;

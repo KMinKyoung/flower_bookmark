@@ -1,4 +1,4 @@
-package me.minkyoung.flower_bookmark.Entity;
+package me.minkyoung.flower_bookmark.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

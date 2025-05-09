@@ -1,6 +1,6 @@
-package me.minkyoung.flower_bookmark.Repository;
+package me.minkyoung.flower_bookmark.repository;
 
-import me.minkyoung.flower_bookmark.Entity.Book;
+import me.minkyoung.flower_bookmark.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookRepository extends JpaRepository<Book, Long> {

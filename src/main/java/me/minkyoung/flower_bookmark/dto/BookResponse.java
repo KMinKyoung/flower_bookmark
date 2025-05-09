@@ -1,4 +1,4 @@
-package me.minkyoung.flower_bookmark.Dto;
+package me.minkyoung.flower_bookmark.dto;
 
 import lombok.Builder;
 import lombok.Getter;

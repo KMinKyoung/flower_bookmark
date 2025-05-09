@@ -1,8 +1,8 @@
-package me.minkyoung.flower_bookmark.Service;
+package me.minkyoung.flower_bookmark.service;
 
-import me.minkyoung.flower_bookmark.Dto.BookRequest;
-import me.minkyoung.flower_bookmark.Dto.BookResponse;
-import me.minkyoung.flower_bookmark.Entity.Book;
+import me.minkyoung.flower_bookmark.dto.BookRequest;
+import me.minkyoung.flower_bookmark.dto.BookResponse;
+
 import java.util.List;
 
 public interface BookService {

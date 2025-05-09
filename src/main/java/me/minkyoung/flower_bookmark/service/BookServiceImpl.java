@@ -1,14 +1,14 @@
-package me.minkyoung.flower_bookmark.Service;
+package me.minkyoung.flower_bookmark.service;
 
-import me.minkyoung.flower_bookmark.Dto.BookRequest;
-import me.minkyoung.flower_bookmark.Dto.BookResponse;
-import me.minkyoung.flower_bookmark.Repository.BookRepository;
+import me.minkyoung.flower_bookmark.dto.BookRequest;
+import me.minkyoung.flower_bookmark.dto.BookResponse;
+import me.minkyoung.flower_bookmark.repository.BookRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import me.minkyoung.flower_bookmark.Entity.Book;
+import me.minkyoung.flower_bookmark.entity.Book;
 import java.util.List;
 import java.util.stream.Collectors;
 

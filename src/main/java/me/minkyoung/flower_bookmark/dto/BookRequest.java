@@ -1,4 +1,4 @@
-package me.minkyoung.flower_bookmark.Dto;
+package me.minkyoung.flower_bookmark.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
