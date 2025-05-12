@@ -2,6 +2,8 @@ package me.minkyoung.flower_bookmark.service;
 
 import me.minkyoung.flower_bookmark.dto.BookRequest;
 import me.minkyoung.flower_bookmark.dto.BookResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -20,5 +22,7 @@ public interface BookService {
 
     // ID를 이용해 해당 도서를 삭제하는 메서드
     void deleteBook(Long id);
+
+    Page<BookResponse> searchBooks(String keyword, Pageable pageable);
 
 }

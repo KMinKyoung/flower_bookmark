@@ -1,10 +1,13 @@
 package me.minkyoung.flower_bookmark.service;
 
+
 import me.minkyoung.flower_bookmark.dto.BookRequest;
 import me.minkyoung.flower_bookmark.dto.BookResponse;
 import me.minkyoung.flower_bookmark.repository.BookRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -99,6 +102,18 @@ public class BookServiceImpl implements BookService {
     // ID를 이용해 해당 도서를 삭제하는 메서드
     public void deleteBook(Long id){
         bookRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<BookResponse> searchBooks(String keyword, Pageable pageable){
+        Page<Book> page;
+        if(keyword==null||keyword.isBlank()){
+            return bookRepository.findAll(pageable)
+                    .map(this::toResponse);
+        }
+
+        return bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCase(
+                keyword,keyword,pageable).map(this::toResponse);
     }
 
 }

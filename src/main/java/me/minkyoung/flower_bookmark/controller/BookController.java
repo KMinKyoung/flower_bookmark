@@ -5,6 +5,8 @@ import me.minkyoung.flower_bookmark.dto.BookRequest;
 import me.minkyoung.flower_bookmark.dto.BookResponse;
 import me.minkyoung.flower_bookmark.entity.Book;
 import me.minkyoung.flower_bookmark.service.BookService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +24,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<BookResponse>> getAllBooks() {
         List<BookResponse> books = bookService.getAllBooks();
         return ResponseEntity.ok(books);
@@ -52,5 +54,13 @@ public class BookController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping
+    public ResponseEntity<Page<BookResponse>> list(
+            @RequestParam(required = false, defaultValue = "")String keyword,
+            Pageable pageable)
+    {
+        Page<BookResponse> page = bookService.searchBooks(keyword, pageable);
+        return ResponseEntity.ok(page);
+    }
 
 }
