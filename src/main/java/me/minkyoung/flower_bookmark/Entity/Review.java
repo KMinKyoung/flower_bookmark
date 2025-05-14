@@ -24,7 +24,7 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY) //책과 m:1
     @JoinColumn(name = "book_id", nullable = false)
-    Book book;
+    private Book book;
 
     @Column(nullable = false, columnDefinition = "Text")
     private String content;
