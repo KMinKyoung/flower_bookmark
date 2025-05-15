@@ -14,6 +14,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +33,11 @@ public class AuthService {
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        User user = userRepository.findByUserId(userId).orElseThrow(()-> new UsernameNotFoundException("존재하지 않는 사용자입니다."));
         //토큰 발급
-        String accessToken = jwtTokenProvider.createAccessToken(userId);
-        String refreshToken = jwtTokenProvider.createRefreshToken(userId);
+        String accessToken = jwtTokenProvider.createAccessToken(user.getUserId(), user.getRole());
+        String refreshToken = jwtTokenProvider.createRefreshToken(user.getUserId(), user.getRole());
 
         //리프렐시 토큰 저장
         RefreshToken refresh = new RefreshToken(userId, refreshToken);
@@ -62,9 +65,12 @@ public class AuthService {
             throw new RuntimeException("Token mismatch");
         }
 
+        Role role = userRepository.findByUserId(userId)
+                .orElseThrow(()-> new RuntimeException("유저를 찾을 수 없습니다.")).getRole();
+
         //새 토큰 발급
-        String newAccess = jwtTokenProvider.createAccessToken(userId);
-        String newRefresh = jwtTokenProvider.createRefreshToken(userId);
+        String newAccess = jwtTokenProvider.createAccessToken(userId,role);
+        String newRefresh = jwtTokenProvider.createRefreshToken(userId,role);
 
         //리프레시 토큰 갱신
         refreshTokenRepository.save(new RefreshToken(userId, newRefresh));

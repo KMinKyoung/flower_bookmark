@@ -1,6 +1,7 @@
 package me.minkyoung.flower_bookmark.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import me.minkyoung.flower_bookmark.dto.BookRequest;
 import me.minkyoung.flower_bookmark.dto.BookResponse;
 import me.minkyoung.flower_bookmark.entity.Book;
@@ -8,6 +9,7 @@ import me.minkyoung.flower_bookmark.service.BookService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,19 +38,25 @@ public class BookController {
         return ResponseEntity.ok(book);
     }
 
+    //관리자 도서 추가
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<BookResponse> createBook(@Valid @RequestBody BookRequest book) {
         BookResponse createdBook = bookService.createBook(book);
         return ResponseEntity.ok(createdBook);
     }
 
+    //관리자 도서 수정
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<BookResponse> updateBook(@PathVariable Long id, @RequestBody BookRequest book) {
         BookResponse updatedBook = bookService.updateBook(id, book);
         return ResponseEntity.ok(updatedBook);
     }
 
+    //관리자 도서 삭제
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Book> deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
         return ResponseEntity.noContent().build();

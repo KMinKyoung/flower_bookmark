@@ -109,4 +109,12 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItem> cartItems = new ArrayList<>();
+
+    public User(String userId, String password, String email, String name, Role role) {
+        this.userId = userId;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.role = role;
+    }
 }
