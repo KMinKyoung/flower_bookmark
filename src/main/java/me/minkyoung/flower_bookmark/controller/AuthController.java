@@ -19,7 +19,7 @@ import java.util.Map;
 public class AuthController {
     private final AuthService authService;
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<TokenDto> login(@RequestBody Map<String, String> loginInfo) {
         String userId = loginInfo.get("userId");
         String password = loginInfo.get("password");
