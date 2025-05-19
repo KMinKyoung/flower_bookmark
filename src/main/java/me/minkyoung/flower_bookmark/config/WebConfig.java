@@ -41,6 +41,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET,"/api/book/**").permitAll() //비회원 책 조회 가능
                         .requestMatchers("/auth/**","/signup").permitAll() //로그인 및 회원가입 허용
+                        .requestMatchers(HttpMethod.POST, "/api/book/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/book/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/book/**").hasRole("ADMIN") //관리자만 가능한 API
                         .anyRequest().authenticated() // 그 외에는 인증 필요
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
