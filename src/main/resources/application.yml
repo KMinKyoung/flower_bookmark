@@ -1,3 +1,6 @@
+jwt:
+  secret: mysecretflowerbookmark
+
 spring:
   debug: true
   datasource:
@@ -12,3 +15,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
