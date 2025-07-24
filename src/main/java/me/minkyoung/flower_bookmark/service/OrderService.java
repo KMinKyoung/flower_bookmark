@@ -16,7 +16,6 @@ import java.util.List;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final CartItemRepository cartItemRepository;
-    private final BookRepository bookRepository;
 
     @Transactional
     public OrderResponseDto createOrder(User user){

@@ -32,7 +32,7 @@ public class CartItemService {
             cartItem = new CartItem(user, book, requestDto.getQuantity());
         } else {
             //이미 담겨져 있는 경우, 수량만 추가
-            cartItem.updateQuantity(requestDto.getQuantity()+requestDto.getQuantity());
+            cartItem.updateQuantity(cartItem.getQuantity()+requestDto.getQuantity());
         }
 
         cartItemRepository.save(cartItem);
