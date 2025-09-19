@@ -28,13 +28,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //자동 증가 ID
     private Long id;
 
-    @Column(name = "User_id", nullable = false, unique = true)
+    @Column(name = "User_id", nullable = false, unique = true)  //로그인 id , 유저 로그인
     private String userId;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false) //사용자 이름
     private String name;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true) //로그인 이메일
     private String email;
 
     @Column(name = "password", nullable = false)

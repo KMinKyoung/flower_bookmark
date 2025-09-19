@@ -36,7 +36,7 @@ public class Book {
     @Column(nullable = false)
     private int stock_quantity;
 
-    @Lob
+    @Lob //(Large Object)
     private String description;
 
     @Column(name = "image_url", length = 500)
