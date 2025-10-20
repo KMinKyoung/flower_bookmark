@@ -125,7 +125,36 @@
 ### 로그인 기능
 <img width="1903" height="922" alt="Image" src="https://github.com/user-attachments/assets/90953aa7-d3b6-4607-973e-385da6040236" />
 
+### 회원가입 기능
+<img width="1880" height="934" alt="Image" src="https://github.com/user-attachments/assets/5f805b98-918e-4cc5-b828-ad9db46e5364" />
+
+### 도서 전체 조회
+<img width="1892" height="948" alt="Image" src="https://github.com/user-attachments/assets/70eedf55-eaff-4373-b5b2-bba688d1a243" />
+
+### 도서 상세 조회
+<img width="1850" height="955" alt="Image" src="https://github.com/user-attachments/assets/2160f0a1-b46d-4042-897e-2d1785c01b54" />
+
+### 장바구니 기능
+<img width="1883" height="943" alt="Image" src="https://github.com/user-attachments/assets/b9357d9b-b4bf-4ea3-9c71-94a351a20e7e" />
+
+### 관리자 기능
+<img width="1883" height="948" alt="Image" src="https://github.com/user-attachments/assets/41cd8494-68a9-4ae9-a900-dcd8db7d218e" />
+
 ## 6. 트러블 슈팅
+### 6-1. 도서 페이징 처리
+- 문제 : 기존 프론트엔드에서 전체 도서에 대한 filter 처리를 통해 메모리 및 CPU 부하가 발생하며 초기 로딩 시간 지연 발생
+- 해결 방법 : 백엔드에서 **Pageable**을 통해서 
+<br/> **키워드가 null 또는 공백일 때**, 전체 도서 조회로 분기
+<br/> **null이 아닐 때**, 제목이나 저자를 기준(대소문자 무시)으로 분기
+- 개선 효과 : 기존에는 프론트엔트의 filter 연산에서 백엔드의 Pageable을 통한 DB 인덱스를 활용해 필요한 페이지만 조회 전송 가능하여 **초기 로딩 시간 지연이 3.4초에서 2.7초로 감소하였다.**
+
+### 6-2. 장바구니 수량 누적 로직
+- 문제 : 장바구니 생성 시 기존 수량이 누락되며 새롭게 객체를 생성하는 문제
+- 해결 방법 : 기존 항목의 **존재 여부 확인 후 없을 경우** 장바구니 객체를 새롭게 생성,
+<br/> **기존 항목이 존재할 경우** 기존 엔터티의 수량에 요청 수량을 더하는 업데이트 방식으로 로직 수정
+- 개선 효과 : 기존에 중복 도서에 대한 장바구니 항목이 생성되는 것을 방지하며 도서에 대한 정확한 수량을 반영하여 누적 버그를 해소해 사용자 불편 감소 및 DB에 불필요한 레코드 저장 방지
+
+<br/> 
 ## 7. 개선 목표
 | 확장 범위                    | Description                             |
 |--------------------------|-----------------------------------------|

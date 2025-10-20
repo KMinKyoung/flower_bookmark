@@ -104,7 +104,7 @@ public class BookServiceImpl implements BookService {
         bookRepository.deleteById(id);
     }
 
-    @Override
+    @Override //도서 검색
     public Page<BookResponse> searchBooks(String keyword, Pageable pageable){
         Page<Book> page;
         if(keyword==null||keyword.isBlank()){
