@@ -125,20 +125,34 @@
 ### 로그인 기능
 <img width="1903" height="922" alt="Image" src="https://github.com/user-attachments/assets/90953aa7-d3b6-4607-973e-385da6040236" />
 
+- 아이디, 비밀번호를 이용한 JWT 기반 로그인
+
 ### 회원가입 기능
 <img width="1880" height="934" alt="Image" src="https://github.com/user-attachments/assets/5f805b98-918e-4cc5-b828-ad9db46e5364" />
+
+- 아이디, 비밀번호, 이름, 이메일을 함께 등록하여 JWT 기반 회원가입
 
 ### 도서 전체 조회
 <img width="1892" height="948" alt="Image" src="https://github.com/user-attachments/assets/70eedf55-eaff-4373-b5b2-bba688d1a243" />
 
+- 판매 중인 책에 대한 전체 조회
+- 로그인한 회원에 한하여 장바구니 및 주문 내역 기능 제공
+
 ### 도서 상세 조회
 <img width="1850" height="955" alt="Image" src="https://github.com/user-attachments/assets/2160f0a1-b46d-4042-897e-2d1785c01b54" />
+
+- 도서 상세 확인으로 책에 대한 리뷰 확인 가능
+- 로그인한 사용자만 댓글 작성 가능
 
 ### 장바구니 기능
 <img width="1883" height="943" alt="Image" src="https://github.com/user-attachments/assets/b9357d9b-b4bf-4ea3-9c71-94a351a20e7e" />
 
+- 구매하고자 하는 도서에 대해 장바구니에 추가 시 누적이 되어 결제 금액 및 적용 할인을 예상하여 금액 추출
+
 ### 관리자 기능
 <img width="1883" height="948" alt="Image" src="https://github.com/user-attachments/assets/41cd8494-68a9-4ae9-a900-dcd8db7d218e" />
+
+- 도서 추가, 수정, 삭제 기능 제공하여 관리자가 손쉽게 도서를 관리할 수 있는 기능
 
 ## 6. 트러블 슈팅
 ### 6-1. 도서 페이징 처리
