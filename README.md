@@ -15,12 +15,12 @@
 <br/>
 
 ## 1. 개발 환경
-언어 : JAVA(JDK-17) <br/>
-프레임워크 : Spring Boot(백엔드), Next.js(프론트엔드) <br/>
-빌드 및 의존성 관리 : Gradle<br/>
-데이터베이스 : DATA GRIP(MySql)<br/>
-테스트 : Postman<br/>
-[요구사항정의서 & 기능 명세서](https://docs.google.com/spreadsheets/d/1tx1Fwn7XINvjStAxNoDd8iMqW4mWuhmSUcMeJy1vZMY/edit?usp=sharing)
+- 언어 : JAVA(JDK-17) 
+- 프레임워크 : Spring Boot(백엔드), Next.js(프론트엔드) 
+- 빌드 및 의존성 관리 : Gradle
+- 데이터베이스 : DATA GRIP(MySql)
+- 테스트 : Postman
+- [요구사항정의서 & 기능 명세서](https://docs.google.com/spreadsheets/d/1tx1Fwn7XINvjStAxNoDd8iMqW4mWuhmSUcMeJy1vZMY/edit?usp=sharing)
 
 <br/>
 
