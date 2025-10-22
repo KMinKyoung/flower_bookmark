@@ -1,7 +1,6 @@
 # 꽃갈피 READ ME
 <img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/9c32ee42-fba8-477e-a706-f67e7fd07d08" />
 
-시연 영상 또는 URL(고민)
 
 <br/><br/>
 
